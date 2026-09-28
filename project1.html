@@ -3,76 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Flipkart Replica</title>
-<style>
-  *{box-sizing:border-box}
-  body{margin:0; padding:20px; background:#faf9f6; font-family:Arial,Helvetica,sans-serif; color:#000}
+<title>Amazon Replica</title>
 
-  .top{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px}
-  .brand{font-size:28px; font-weight:700; font-style:italic; color:#2874f0; text-decoration:none}
-  .brand span{display:inline-block; margin-left:8px; padding:2px 8px; background:#ffe500; color:#2874f0; border-radius:6px; font-size:20px}
-  .back{color:#2874f0; font-size:15px}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#131921;
+    --navy-light:#232f3e;
+    --orange:#ff9900;
+    --orange-dark:#e47911;
+    --star:#ffa41c;
+    --link:#007185;
+    --bg:#eaeded;
+    --card:#ffffff;
+    --text:#0f1111;
+    --grey:#565959;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'DM Sans', Arial, sans-serif;
+  }
+
+  header{
+    background:var(--navy);
+    padding:12px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .brand{
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+    text-decoration:none;
+    letter-spacing:-0.5px;
+  }
+  .brand span{
+    display:block;
+    height:4px;
+    width:60%;
+    margin:-2px 0 0 auto;
+    background:var(--orange);
+    border-radius:0 0 20px 20px;
+  }
+  .back{
+    color:#fff;
+    font-size:14px;
+    text-decoration:none;
+  }
+  .back:hover{color:var(--orange)}
+
+  .subbar{
+    background:var(--navy-light);
+    color:#fff;
+    padding:8px 24px;
+    font-size:14px;
+  }
+
+  main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:24px 20px 40px;
+  }
 
   .search{
-    display:block; width:100%; max-width:1010px; margin:28px 0 36px; padding:14px 8px;
-    border:2px solid #6bb4d6; border-radius:8px; font-size:15px; background:#fff;
+    display:block;
+    width:100%;
+    padding:14px 16px;
+    margin-bottom:28px;
+    border:2px solid transparent;
+    border-radius:6px;
+    font-family:inherit;
+    font-size:15px;
+    background:var(--card);
+    box-shadow:0 1px 3px rgba(0,0,0,0.2);
   }
-  .search:focus{outline:none; border-color:#2874f0}
+  .search:focus{
+    outline:none;
+    border-color:var(--orange);
+  }
 
-  .products{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:32px}
-  .product img,.product .ph{
-    display:block; width:200px; height:250px; object-fit:cover; border-radius:20px;
-    background:linear-gradient(135deg,#ddd,#bbb);
+  .products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:20px;
   }
-  .product h3{margin:24px 0 0; font-size:20px}
-  .product h3 small{font-size:14px; color:#666; font-weight:700; margin-left:2px}
-  .price{font-size:19px; font-weight:700; margin:18px 0}
-  .rating{display:inline-block; padding:2px 4px; background:#008000; color:#fff; font-size:15px; font-weight:700; border-radius:4px}
-  .count{margin-left:6px; font-size:17px}
-  .empty{display:none; color:#666; font-size:18px}
+
+  .product{
+    background:var(--card);
+    padding:16px;
+    border-radius:8px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15);
+    display:flex;
+    flex-direction:column;
+  }
+
+  .product img{
+    display:block;
+    width:100%;
+    height:200px;
+    object-fit:contain;
+    background:#f7f7f7;
+    border-radius:6px;
+  }
+
+  .product h3{
+    margin:14px 0 0;
+    font-size:16px;
+    font-weight:500;
+    line-height:1.4;
+  }
+  .product h3 small{
+    display:block;
+    font-size:13px;
+    font-weight:400;
+    color:var(--grey);
+  }
+
+  .rating{
+    margin-top:8px;
+    font-size:14px;
+  }
+  .stars{color:var(--star); font-weight:700}
+  .count{margin-left:4px; color:var(--link)}
+
+  .price{
+    margin:8px 0 14px;
+    font-size:22px;
+    font-weight:700;
+  }
+
+  .btn{
+    margin-top:auto;
+    padding:10px;
+    border:none;
+    border-radius:20px;
+    background:var(--orange);
+    font-family:inherit;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--orange-dark)}
+
+  .empty{
+    display:none;
+    color:var(--grey);
+    font-size:16px;
+  }
 </style>
 </head>
 <body>
 
-<div class="top">
-  <a class="brand" href="#">Flipkart<span>f</span></a>
+<header>
+  <a class="brand" href="#">amazon<span></span></a>
   <a class="back" href="../portfolio.html">Back to portfolio</a>
-</div>
+</header>
 
-<input class="search" id="search" type="search" placeholder="Search for Products, Brands and More" aria-label="Search products">
+<div class="subbar">All &nbsp;|&nbsp; Today's Deals &nbsp;|&nbsp; Best Sellers &nbsp;|&nbsp; Customer Service</div>
 
-<div class="products" id="products">
+<main>
+  <input class="search" id="search" type="search" placeholder="Search Amazon" aria-label="Search products">
 
-  <div class="product">
-    <img src="Images/iphone.jpg" alt="Apple iPhone 17">
-    <h3>Apple <small>iPhone 17 (256GB)</small></h3>
-    <div class="price">$999</div>
-    <span class="rating">4.6★</span><span class="count">(26,971)</span>
+  <div class="products" id="products">
+
+    <div class="product">
+      <img src="Images/headphones.jpg" alt="Sony wireless headphones">
+      <h3>Sony <small>WH-1000XM5 Noise Cancelling Headphones</small></h3>
+      <div class="rating"><span class="stars">4.6 ★</span><span class="count">(18,240)</span></div>
+      <div class="price">$348</div>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Images/instantpot.jpg" alt="Instant Pot pressure cooker">
+      <h3>Instant Pot <small>Duo 7-in-1 Electric Pressure Cooker</small></h3>
+      <div class="rating"><span class="stars">4.7 ★</span><span class="count">(95,310)</span></div>
+      <div class="price">$89</div>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Images/book.jpg" alt="Atomic Habits book">
+      <h3>James Clear <small>Atomic Habits (Paperback)</small></h3>
+      <div class="rating"><span class="stars">4.8 ★</span><span class="count">(120,554)</span></div>
+      <div class="price">$16</div>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Images/backpack.jpg" alt="Travel backpack">
+      <h3>Wildcraft <small>35L Waterproof Travel Backpack</small></h3>
+      <div class="rating"><span class="stars">4.3 ★</span><span class="count">(7,862)</span></div>
+      <div class="price">$59</div>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Images/yogamat.jpg" alt="Yoga mat">
+      <h3>Boldfit <small>Anti-Slip Yoga Mat (6mm)</small></h3>
+      <div class="rating"><span class="stars">4.2 ★</span><span class="count">(13,479)</span></div>
+      <div class="price">$24</div>
+      <button class="btn">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="Images/lego.jpg" alt="LEGO building set">
+      <h3>LEGO <small>Classic Creative Brick Box (790 pcs)</small></h3>
+      <div class="rating"><span class="stars">4.9 ★</span><span class="count">(41,905)</span></div>
+      <div class="price">$45</div>
+      <button class="btn">Add to Cart</button>
+    </div>
+
   </div>
 
-  <div class="product">
-    <img src="Images/bangles.jpg" alt="BlueStone gold bangles">
-    <h3>BlueStone <small>Gold Bangles</small></h3>
-    <div class="price">$199</div>
-    <span class="rating">4.3★</span><span class="count">(12,345)</span>
-  </div>
-
-  <div class="product">
-    <img src="Images/basket.jpg" alt="Handicraft wicker basket">
-    <h3>Handicraft <small>Wicker Basket</small></h3>
-    <div class="price">$49</div>
-    <span class="rating">4.1★</span><span class="count">(8,765)</span>
-  </div>
-
-  <div class="product">
-    <img src="Images/rm.jpg" alt="Adidas Real Madrid jersey">
-    <h3>Adidas <small>Real Madrid Emerald Green Jersey</small></h3>
-    <div class="price">$115</div>
-    <span class="rating">4.0★</span><span class="count">(5,432)</span>
-  </div>
-
-</div>
-<p class="empty" id="empty">No products match your search.</p>
+  <p class="empty" id="empty">No results found. Try checking your spelling or use a different word.</p>
+</main>
 
 <script>
   const search = document.getElementById('search');
@@ -80,13 +236,15 @@
   const empty = document.getElementById('empty');
 
   search.addEventListener('input', () => {
-    const q = search.value.trim().toLowerCase();
+    const query = search.value.trim().toLowerCase();
     let shown = 0;
+
     cards.forEach(card => {
-      const match = card.textContent.toLowerCase().includes(q);
+      const match = card.textContent.toLowerCase().includes(query);
       card.style.display = match ? '' : 'none';
       if (match) shown++;
     });
+
     empty.style.display = shown ? 'none' : 'block';
   });
 </script>

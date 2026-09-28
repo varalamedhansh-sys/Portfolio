@@ -1,162 +1,338 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment1</title>
+    <title>Student Portal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        h1 {
-            color: rgba(10, 63, 10, 0.634);
+        :root {
+            --green-dark: #1e4d3a;
+            --green: #2f7d5b;
+            --green-light: #e3f1ea;
+            --accent: #f2b544;
+            --bg: #f5f8f6;
+            --card: #ffffff;
+            --text: #1c2b24;
+            --border: #cfe0d6;
         }
 
-        h3 {
-            color: rgba(13, 91, 13, 0.836);
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            background-color: rgb(146, 185, 146);
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Nunito', Arial, sans-serif;
+            line-height: 1.6;
         }
 
-        .Head {
-            font-family: 'Times New Roman', Times, serif;
+        header {
+            background-color: var(--green-dark);
+            color: #ffffff;
+            padding: 20px 32px;
         }
 
-        #student-id {
-            color: rgb(17, 76, 37);
+        header h1 {
+            margin: 0 0 12px;
+            font-size: 28px;
+            font-weight: 800;
         }
 
-        span {
-            color:rgb(11, 62, 3);
-            background-color: rgb(143, 157, 116);
-            font-weight: bold;
+        nav a {
+            display: inline-block;
+            margin-right: 8px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: var(--accent);
+            color: var(--green-dark);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 20px 40px;
+        }
+
+        section {
+            margin-bottom: 24px;
+            padding: 20px 24px;
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        section h2 {
+            margin: 0 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--accent);
+            color: var(--green-dark);
+            font-size: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--green);
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--green-light);
+        }
+
+        .badge {
+            margin-left: 8px;
+            padding: 2px 10px;
+            border-radius: 12px;
+            background-color: var(--accent);
+            color: var(--green-dark);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills li {
+            padding: 6px 16px;
+            border-radius: 20px;
+            background-color: var(--green-light);
+            border: 1px solid var(--border);
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .schedule-wrap {
+            overflow-x: auto;
+        }
+
+        form fieldset {
+            margin: 0 0 16px;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        form legend {
+            padding: 0 8px;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .option {
+            display: inline-block;
+            margin-right: 18px;
+        }
+
+        button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background-color: var(--green);
+            color: #ffffff;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--green-dark);
+        }
+
+        button[type="reset"] {
+            background-color: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        button[type="reset"]:hover {
+            background-color: var(--border);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="Head">Student Portal</h1>
-        <hr>
-        <h3>Navigation Menu</h3>
-        <a href="www.scaler.com">Home </a>
-        <a href="www.scaler.com">Profile</a>
-        <a href="www.scaler,com">Courses</a>
-        <a href="www.scaler.com">Register</a>
+        <h1>Student Portal</h1>
+        <nav>
+            <a href="https://www.scaler.com">Home</a>
+            <a href="https://www.scaler.com">Profile</a>
+            <a href="https://www.scaler.com">Courses</a>
+            <a href="https://www.scaler.com">Register</a>
+        </nav>
     </header>
-    <hr>
-    <section>
-        <h3 id="student-id">Student Profile</h3>
-        <table>
-            <tbody><tr>
-                <th>Field</th>
-                <th>Value</th>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>Varala Medhansh<span class="badge">Top Performer</span></td>
-            </tr>
-            <tr>
-                <td>Student ID</td>
-                <td>26BCS10407</td>
-            </tr>
-            <tr>
-                <td>Program</td>
-                <td>Computer Science</td>
-            </tr>
-            <tr>
-                <td>Year</td>
-                <td>1st Year</td>
-            </tr>
-            <tr>
-                <td>E-mail</td>
-                <td>varala.26bcs10407@sst.scaler.com</td><td>
-            </td></tr>
-        </tbody></table>
-    </section>
-    <hr>
-    <section>
-        <h3>My Skills</h3>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Git</li>
-        </ul>
-    </section>
-    <hr>
-    <section>
-        <h3>Weekly Schedule</h3>
-        <table>
-            <tbody><tr>
-                <th>Day</th>
-                <th>9:00 AM</th>
-                <th>11:00 AM</th>
-                <th>2:00 PM</th>
-            </tr>
-            <tr>
-                <td>Monday</td>
-                <td>HTML</td>
-                <td>Mathematics</td>
-                <td>DSA</td>
-            </tr>
-            <tr>
-                <td>Tuesday</td>
-                <td>CSS</td>
-                <td>DBMS</td>
-                <td>English</td>
-            </tr>
-            <tr>
-                <td>Wednesday</td>
-                <td>JavaScript</td>
-                <td>DSA</td>
-                <td>Mathematics</td>
-            </tr>
-            <tr>
-                <td>Thursday</td>
-                <td>DBMS</td>
-                <td>HTML</td>
-                <td>Project</td>
-            </tr>
-            <tr>
-                <td>Friday</td>
-                <td>DSA</td>
-                <td>CSS</td>
-                <td>Workshop</td>
-            </tr>
-        </tbody></table>
-    </section>
-    <hr>
-    <section>
-        <h3>Course Registration</h3>
-        <form>
-            <select>
-                <h4>Course Selection</h4>
-                <option>Select Course</option>
-                <option>HTML &amp; CSS</option>
-                <option>JavaScript</option>
-                <option>Python</option>
-                <option>Data Structure</option>
-                <option>Database Management</option>
-            </select>
-            <label>
-                <h4>Preferred Learning Mode</h4>
-                Online <input type="radio" value="Online">
-                Offline <input type="radio" value="Offline">
-            </label>
-            <h4>Skills You Already Know</h4>
-            <input type="checkbox" id="html">
-            <label for="l">HTML</label>
 
-            <input type="checkbox" id="l">
-            <label for="l">CSS</label>
+    <main>
+        <section>
+            <h2>Student Profile</h2>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Varala Medhansh<span class="badge">Top Performer</span></td>
+                </tr>
+                <tr>
+                    <td>Student ID</td>
+                    <td>26BCS10407</td>
+                </tr>
+                <tr>
+                    <td>Program</td>
+                    <td>Computer Science</td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>1st Year</td>
+                </tr>
+                <tr>
+                    <td>E-mail</td>
+                    <td>varala.26bcs10407@sst.scaler.com</td>
+                </tr>
+            </table>
+        </section>
 
-            <input type="checkbox" id="l">
-            <label for="l">JavaScript</label>
+        <section>
+            <h2>My Skills</h2>
+            <ul class="skills">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Git</li>
+            </ul>
+        </section>
 
-            <input type="checkbox" id="l">
-            <label for="l">Python</label>
+        <section>
+            <h2>Weekly Schedule</h2>
+            <div class="schedule-wrap">
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>9:00 AM</th>
+                        <th>11:00 AM</th>
+                        <th>2:00 PM</th>
+                    </tr>
+                    <tr>
+                        <td>Monday</td>
+                        <td>HTML</td>
+                        <td>Mathematics</td>
+                        <td>DSA</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>CSS</td>
+                        <td>DBMS</td>
+                        <td>English</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>JavaScript</td>
+                        <td>DSA</td>
+                        <td>Mathematics</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>DBMS</td>
+                        <td>HTML</td>
+                        <td>Project</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>DSA</td>
+                        <td>CSS</td>
+                        <td>Workshop</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
 
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-        </form>
-    </section>
-</body></html>
+        <section>
+            <h2>Course Registration</h2>
+            <form>
+                <fieldset>
+                    <legend>Course Selection</legend>
+                    <select name="course" aria-label="Course selection">
+                        <option>Select Course</option>
+                        <option>HTML &amp; CSS</option>
+                        <option>JavaScript</option>
+                        <option>Python</option>
+                        <option>Data Structure</option>
+                        <option>Database Management</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferred Learning Mode</legend>
+                    <label class="option">
+                        <input type="radio" name="mode" value="Online"> Online
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="mode" value="Offline"> Offline
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Skills You Already Know</legend>
+                    <label class="option">
+                        <input type="checkbox" name="skills" value="HTML"> HTML
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="skills" value="CSS"> CSS
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="skills" value="JavaScript"> JavaScript
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="skills" value="Python"> Python
+                    </label>
+                </fieldset>
+
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
